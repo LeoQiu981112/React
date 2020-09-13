@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+    <script>
+        var root = document.getElementById('root')
+
+        var state = {
+            like : false
+        }
+
+        var setState = function (newState) {
+            state = {
+                ...state,
+                ...newState
+            }
+            render()
+        }
+
+        var handleClick = function (value) {
+                setState(
+                    {
+                        like: !state.like
+                }
+            )
+        }
+
+        // js generated, html regen, partial
+        var render = function () {
+            root.innerHTML = 
+            `
+                <button type="button" style="color: ${state.like ? "red" : "black"};" onclick="handleClick()" >
+                    ${state.like ? "liked" : "like"}
+                </button>
+            `
+        }
+
+
+
+        render()
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="like">like</button>
+    <script>
+        var likebtn = document.getElementById("like")
+
+        likebtn.addEventListener('click',function(){
+            if (likebtn.innerHTML == 'liked') {
+                likebtn.innerHTML = 'like'
+            likebtn.style.color = 'black'
+            } else{
+                likebtn.innerHTML = 'liked'
+                likebtn.style.color = 'red'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input"></input>
+    <p id="error" style="color: red;">can't have over 20 words</p>
+    <button id="clearError">x</button>
+    <script>
+        var input = document.getElementById('input')
+        var errorMsg = document.getElementById('error')
+
+        document.getElementById('clearError').addEventListener('click',function(){
+            setState(
+                {
+                    error : false
+                }
+            )
+        })
+
+        var state = {
+            value : "",
+            error : false
+        }
+
+        var setState = function(newState){
+            state = {
+                ...state,
+                ...newState
+            }
+            render()
+        }
+
+        var render = function(){
+            input.value = state.value
+            if(state.error){
+                errorMsg.style.display = 'block'
+            } else {
+                errorMsg.style.display = 'none'
+            }
+        }
+
+        var handleInput = function(value){
+            if(value.length < 20){
+                setState({
+                    value : value 
+                })
+            }   else {
+                setState({
+                    error : true
+                })
+            }
+        }
+        render()
+        input.addEventListener('input',function (){
+            handleInput(this.value)
+        })
+
+        
+        
+    </script>
+</body>
+</html>
