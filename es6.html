@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var add = function(a,b){
+            return a+b
+        }
+
+        // arrow function, if only 1 argument, bracket can be emitted
+        var add2 = (a,b)=>{
+            return a+b
+        }
+   
+        var p = a =>{
+            return a*a
+        }
+
+        var p1 = a => a*a
+
+        var p2 = a => alert('1')
+
+        // this not obj when func called, window becomes this
+        var obj = {
+            name : "1",
+            f : function(){
+                var me = this
+                window.setTimeout(function(){
+                    console.log(me.name, 'in timeout') // window.this.name => window.name
+                },100)
+            },
+
+            
+            fn :function(){
+                // this will be the object in which this method is called
+                setTimeout(
+                    ()=>{
+                        console.log(this, 'arrow fctn this')
+                    },100
+                )
+            }
+        }
+
+    </script>
+</body>
+</html>

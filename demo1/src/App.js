@@ -1,9 +1,10 @@
-import './App.css'; //css loader
-
 import React, { Component } from 'react';
-
 import named_default, { sub } from './add'
 import logo from './logo.svg';
+import './App.css';
+
+import Button, {Nav} from './Button'
+import Input from './input'
 
 console.log(logo)  //引入图片的路径
 
@@ -22,9 +23,24 @@ class Human extends Animal {
   }
 }
 
-console.log(new Human)
+// function component 
+// const Button = function(){
+//   return (
+//     <button type="button">from button component</button>
+//   )
+// }
 
-
+// more complicated component
+// class Nav extends Component{
+//   constructor(){
+//     super()
+//   }
+//   render(){
+//     return(
+//       <div style={{color : "white" , backgroundColor : "black"}}>"123"</div>
+//     );
+//   }
+// }
 
 
 class App extends Component {
@@ -37,6 +53,8 @@ class App extends Component {
   }
   
   handleClick(){
+    console.log('ur using handle click event')
+
     // use component setstate method, pass in state object 
     this.setState(
       {
@@ -53,12 +71,10 @@ class App extends Component {
     var name = 'leo1';
     var arr = [1, 2, 3, 4, 5]
     return (
+      <div>
+        <Nav />
+        <Button />
 
-      <div className='App'>
-        {/* <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to React</h2>
-        </div>  */}
         <button type="button" style={ this.state.like ? {color: "red"} : {color : "black"} }
           onClick={()=>this.handleClick()} >
         {
@@ -85,8 +101,14 @@ class App extends Component {
         <label htmlFor='input'></label>
         <h2>input</h2>
         <input type='text' id='input' />
+
+        <p onClick={()=>this.handleClick()}>click to look at THIS</p>
+
+
+        <Input></Input>
       </div>);
   }
 }
 
+// index .jx export, then render there
 export default App;
