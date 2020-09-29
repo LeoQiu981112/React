@@ -5,14 +5,22 @@ export default class Button extends Component{
       super()
     }
     render(){
+      console.log('button component updated')
       return(
-        <button type="button">from button.js</button>
+        <button type="button">
+          {this.props.name}
+        </button>
       );
     }
   }
 
-const Nav = function(){
-    return (<div>Nav</div>)
+const Nav = function(props){
+    return (
+      <div>
+        {props.title}
+        {props.children}
+      </div>
+    ) 
 }
 
 export {Nav}

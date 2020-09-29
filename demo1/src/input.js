@@ -21,6 +21,7 @@ export default class Input extends Component{
         )
     }
     render(){
+        console.log('input component updated')
         return(
             <input type="text" onInput={(e)=>this.handleInput(e)} value={this.state.value}/>
         )

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // static, no need to be instantiated to be ran
+        var Demo = function(){
+            this.a = '1'
+        }
+        
+        Demo.a ='2'
+        Demo.b = function(){
+            console.log('demo.b')
+        }
+
+        class Demo2 {
+            // doesn't work       
+            a = "111";
+
+            static b(){
+                console.log('static.b')
+            }
+        }
+
+        Demo2.a = "1112"
+        Demo2.b = function(){
+            console.log('demo.b')
+        }
+    </script>
+
+
+</body>
+
+</html>
